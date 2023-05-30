@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <BaseOutputPath>C:\SynicsraySW\exe</BaseOutputPath>
+  </PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<OutputPath>$(baseOutputPath)</OutputPath>
+		<AssemblyName>$(MSBuildProjectName)d</AssemblyName>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<OutputPath>$(baseOutputPath)</OutputPath>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	</PropertyGroup>
+	
+  <ItemGroup>
+    <None Remove="Resources\BG.png" />
+    <None Remove="Resources\DNBUTTON_OFF.png" />
+    <None Remove="Resources\DNBUTTON_ON.png" />
+    <None Remove="Resources\FLUORO_OFF.png" />
+    <None Remove="Resources\FLUORO_ON.png" />
+    <None Remove="Resources\PULSE_OFF.png" />
+    <None Remove="Resources\PULSE_ON.png" />
+    <None Remove="Resources\RAD_OFF.png" />
+    <None Remove="Resources\RAD_ON.png" />
+    <None Remove="Resources\STATUS_BEGIN.png" />
+    <None Remove="Resources\STATUS_ERROR.png" />
+    <None Remove="Resources\STATUS_READY.png" />
+    <None Remove="Resources\STATUS_WAIT.png" />
+    <None Remove="Resources\STATUS_XRAY.png" />
+    <None Remove="Resources\TIMERRESET_OFF.png" />
+    <None Remove="Resources\TIMERRESET_ON.png" />
+    <None Remove="Resources\UPBUTTON_OFF.png" />
+    <None Remove="Resources\UPBUTTON_ON.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\BG.png" />
+    <Resource Include="Resources\DNBUTTON_OFF.png" />
+    <Resource Include="Resources\DNBUTTON_ON.png" />
+    <Resource Include="Resources\FLUORO_OFF.png" />
+    <Resource Include="Resources\FLUORO_ON.png" />
+    <Resource Include="Resources\PULSE_OFF.png" />
+    <Resource Include="Resources\PULSE_ON.png" />
+    <Resource Include="Resources\RAD_OFF.png" />
+    <Resource Include="Resources\RAD_ON.png" />
+    <Resource Include="Resources\STATUS_BEGIN.png" />
+    <Resource Include="Resources\STATUS_ERROR.png" />
+    <Resource Include="Resources\STATUS_READY.png" />
+    <Resource Include="Resources\STATUS_WAIT.png" />
+    <Resource Include="Resources\STATUS_XRAY.png" />
+    <Resource Include="Resources\TIMERRESET_OFF.png" />
+    <Resource Include="Resources\TIMERRESET_ON.png" />
+    <Resource Include="Resources\UPBUTTON_OFF.png" />
+    <Resource Include="Resources\UPBUTTON_ON.png" />
+  </ItemGroup>
+
+</Project>

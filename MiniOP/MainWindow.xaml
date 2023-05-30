@@ -1,0 +1,255 @@
+﻿<Window x:Class="MiniOP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniOP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1280">
+
+    <Window.Resources>
+        <ImageBrush x:Key="imgTimeResetOn" ImageSource="Resources\TIMERRESET_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgTimeResetOff" ImageSource="Resources\TIMERRESET_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnTimeReset" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              Focusable="False"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource imgTimeResetOn}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="imgBtnDownOn" ImageSource="Resources/DNBUTTON_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgBtnDownOff" ImageSource="Resources/DNBUTTON_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnDown" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Width" Value="46"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Delay" Value="800"/>
+            <Setter Property="Interval" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              Focusable="False"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource imgBtnDownOn}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="imgBtnUpOn" ImageSource="Resources/UPBUTTON_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgBtnUpOff" ImageSource="Resources/UPBUTTON_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnUp" TargetType="{x:Type RepeatButton}">
+            <Setter Property="Width" Value="46"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Delay" Value="800"/>
+            <Setter Property="Interval" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource imgBtnUpOn}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="imgPulseOn" ImageSource="/Resources/PULSE_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgPulseOff" ImageSource="/Resources/PULSE_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnPulse" TargetType="{x:Type ToggleButton}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{StaticResource imgPulseOn}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="{StaticResource imgPulseOff}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="imgFluoroOn" ImageSource="/Resources/FLUORO_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgFluoroOff" ImageSource="/Resources/FLUORO_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnFluoro" TargetType="{x:Type ToggleButton}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{StaticResource imgFluoroOn}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="{StaticResource imgFluoroOff}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ImageBrush x:Key="imgRadOn" ImageSource="/Resources/RAD_ON.png" Stretch="Fill" />
+        <ImageBrush x:Key="imgRadOff" ImageSource="/Resources/RAD_OFF.png" Stretch="Fill" />
+        <Style x:Key="btnRad" TargetType="{x:Type ToggleButton}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{StaticResource imgRadOn}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter Property="Background" Value="{StaticResource imgRadOff}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/BG.png"/>
+    </Window.Background>
+
+    <Canvas>
+
+        <Image Source="{Binding StatusImg}" Canvas.Left="797" Canvas.Top="14" Width="186" Height="66"/>
+
+        <TextBlock Canvas.Left="988" Canvas.Top="24" Width="46" Height="50"
+                   FontFamily="Font/#Century Gothic Bold Italic" FontSize="36" Foreground="White" TextWrapping="Wrap" 
+                   Text="{Binding ExposeTimeHr}" TextAlignment="Center"/>
+
+        <TextBlock Canvas.Left="1060" Canvas.Top="24" Width="46" Height="50"
+                   FontFamily="Font/#Century Gothic Bold Italic" FontSize="36" Foreground="White" TextWrapping="Wrap" 
+                   Text="{Binding ExposeTimeMin}" TextAlignment="Center"/>
+
+        <TextBlock Canvas.Left="1120" Canvas.Top="24" Width="46" Height="50"
+                   FontFamily="Font/#Century Gothic Bold Italic" FontSize="36" Foreground="White" TextWrapping="Wrap" 
+                   Text="{Binding ExposeTimeSec}" TextAlignment="Center"/>
+        <RepeatButton Canvas.Left="102" Canvas.Top="213" 
+                      Delay="800" Interval="100" 
+                      Background="{StaticResource imgBtnDownOff}" Style="{DynamicResource btnDown}" Command="{Binding KvDownCommand}"/>
+
+        <TextBlock Canvas.Left="193" Canvas.Top="178" Width="150" Height="80"
+                   FontSize="80" FontFamily="Font/#Century Gothic Bold Italic" Foreground="#FF7D97BD"
+                   Text="{Binding Kv}" TextAlignment="Center" />
+
+        <RepeatButton Canvas.Left="375" Canvas.Top="213" 
+                      Delay="800" Interval="100" 
+                      Background="{StaticResource imgBtnUpOff}" Style="{DynamicResource btnUp}" Command="{Binding KvUpCommand}"/>
+
+
+        <RepeatButton Canvas.Left="102" Canvas.Top="352" 
+                      Delay="800" Interval="100" 
+                      Background="{StaticResource imgBtnDownOff}" Style="{DynamicResource btnDown}" Command="{Binding MaMasDownCommand}"/>
+
+        <TextBlock Canvas.Left="193" Canvas.Top="330" Width="150" Height="85"
+                   FontSize="80" FontFamily="Font/#Century Gothic Bold Italic" Foreground="#FF7D97BD"
+                   Text="{Binding MaMas}" TextAlignment="Center" />
+
+        <TextBlock Canvas.Left="240" Canvas.Top="420" Width="60" Height="35"
+                   FontSize="25" FontFamily="Font/#Century Gothic Bold Italic" Foreground="#FF7D97BD"
+                   Text="{Binding MaMasUnit}" TextAlignment="Center" />
+
+        <RepeatButton Canvas.Left="375" Canvas.Top="352" 
+                      Delay="800" Interval="100" 
+                      Background="{StaticResource imgBtnUpOff}" Style="{DynamicResource btnUp}" Command="{Binding MaMasUpCommand}"/>
+
+        <RadioButton Canvas.Left="903" Canvas.Top="276" Width="96" Height="96" GroupName="Mode"
+                     IsChecked="{Binding IsPulse}" Style="{DynamicResource btnPulse}" Command="{Binding ModePulseCommand}"/>
+
+        <RadioButton Canvas.Left="1016" Canvas.Top="276" Width="96" Height="96" GroupName="Mode"
+                     IsChecked="{Binding IsFluoro}" Style="{DynamicResource btnFluoro}" Command="{Binding ModeFluoroCommand}"/>
+
+        <RadioButton Canvas.Left="1129" Canvas.Top="276" Width="96" Height="96" GroupName="Mode"
+                     IsChecked="{Binding IsRad}" Style="{DynamicResource btnRad}" Command="{Binding ModeRadCommand}"/>
+        <TextBlock Canvas.Left="1120" Canvas.Top="24" Width="46" Height="50"
+                   FontFamily="Font/#Century Gothic Bold Italic" FontSize="36" Foreground="White" TextWrapping="Wrap" 
+                   Text="{Binding Sec}" TextAlignment="Center"/>
+        <Button Canvas.Left="1182" Canvas.Top="20" Width="50" Height="50" 
+                Background="{StaticResource imgTimeResetOff}" Style="{DynamicResource btnTimeReset}" Command="{Binding TimeResetCommand}"/>
+        
+        <!-- ComBoBox for Ports -->
+        <ComboBox x:Name="comboBoxPorts" 
+                  Canvas.Left="550" Canvas.Top="190"
+                  Width="100" Height="30"
+                  ItemsSource="{Binding}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="connectPort"
+                Canvas.Left="650" Canvas.Top="190"
+                Width="50" Height="30"
+                Content="Connect"
+                Click="connectPort_Click"/>
+
+    </Canvas>
+</Window>
