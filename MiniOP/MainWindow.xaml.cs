@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using MiniOP.Model;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -22,16 +23,27 @@ namespace MiniOP
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = Ioc.Default.GetService<ViewModels.MainViewModel>();
             comboBoxPorts.DataContext = SerialPort.GetPortNames();
+            
         }
 
         private void connectPort_Click(object sender, RoutedEventArgs e)
         {
+            string? selectedPort = comboBoxPorts.SelectedItem as string;
+            (DataContext as ViewModels.MainViewModel).ConnectCOMCommand(selectedPort);
+            
+        }
 
+        private void disconnectPort_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as ViewModels.MainViewModel).DisconnectCOMCommand();
         }
     }
 }

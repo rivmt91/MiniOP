@@ -250,6 +250,11 @@
                 Width="50" Height="30"
                 Content="Connect"
                 Click="connectPort_Click"/>
+        <!--<Button x:Name="disconnectPort"
+                Canvas.Left="700" Canvas.Top="190"
+                Width="65" Height="30"
+                Content="Disconnect"
+                Click="disconnectPort_Click"/>-->
 
     </Canvas>
 </Window>

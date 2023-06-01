@@ -16,16 +16,13 @@ namespace MiniOP.Model
         byte[] buffer;
         public MainModel()
         {
-            serialPort = new SerialPort();
-            XmlReader reader = XmlReader.Create("Serial.xml");
-            while (reader.Read())
-            {
-                if (reader.Name == "PortNum")
-                {
-                    serialPort.PortName = reader.ReadElementContentAsString();
-                }
-            }
 
+        }
+
+        public void Connect(string portName)
+        {
+            serialPort = new SerialPort(portName);
+            serialPort.PortName = portName;
             serialPort.BaudRate = 115200;
             serialPort.Parity = Parity.None;
             serialPort.DataBits = 8;
@@ -35,6 +32,17 @@ namespace MiniOP.Model
             serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             buffer = new byte[Packet.PACKETSIZE];
             serialPort.Open();
+        }
+
+        public void Disconnect()
+        {
+            if (serialPort != null)
+            {
+                serialPort.Close();
+                serialPort.Dispose();
+                serialPort = null;
+            }
+
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -114,19 +122,14 @@ namespace MiniOP.Model
                                     Ioc.Default.GetService<ViewModels.MainViewModel>().StatusImg = "Resources/STATUS_ERROR.png"; break;
                             }
                         }
-
-
                     }
-
             }
-
-
         }
 
 
         ~MainModel()
         {
-            serialPort.Close();
+           Disconnect();
         }
 
         public void Send(string id, string data)

@@ -117,10 +117,17 @@ namespace MiniOP.ViewModels
             _model.Send("KEY", "   19");
         }
 
-        [RelayCommand]
-        private void ConnectCOM()
+
+        internal void ConnectCOMCommand(string? selectedPort)
         {
-            
+            _model.Connect(selectedPort); 
         }
+
+        internal void DisconnectCOMCommand()
+        {
+            _model.Disconnect();
+        }
+
+
     }
 }
