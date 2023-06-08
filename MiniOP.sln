@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniOP", "MiniOP\MiniOP.csproj", "{72878AEC-AD9E-4D94-9EDB-A88D43B2C7FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLoginTest", "MyLoginTest\MyLoginTest.csproj", "{0F910089-CD04-4549-AC6B-F28EABF6793C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{72878AEC-AD9E-4D94-9EDB-A88D43B2C7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72878AEC-AD9E-4D94-9EDB-A88D43B2C7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72878AEC-AD9E-4D94-9EDB-A88D43B2C7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F910089-CD04-4549-AC6B-F28EABF6793C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F910089-CD04-4549-AC6B-F28EABF6793C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F910089-CD04-4549-AC6B-F28EABF6793C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F910089-CD04-4549-AC6B-F28EABF6793C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
