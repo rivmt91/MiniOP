@@ -21,7 +21,7 @@
         <Label Grid.Row="2" Content="Password:" Margin="10" />
         <PasswordBox x:Name="txtPassword" Grid.Row="3" Margin="10" KeyDown="PasswordBox_KeyDown" />
 
-        <Button x:Name="btnLogin" Grid.Row="4" Content="Login" Margin="10" Click="btnLogin_Click" />
+        <Button x:Name="btnLogin_CHANGE" Grid.Row="4" Content="Login" Margin="10" Click="btnLogin_Click" />
 
     </Grid>
 </Window>
